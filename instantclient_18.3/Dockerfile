@@ -9,10 +9,14 @@ RUN apt-get update && \
     apt-get install -y python2.7 python-qt4 python-pip unzip libaio1 && \
     pip install --no-cache-dir --upgrade pip
 
+# Following steps are needed for cx_oracle Python library installation and usage
+
 COPY . /installer
 WORKDIR /installer
 
-RUN /bin/bash -c "source ./install_instantclient.sh" && \
+RUN mkdir -p /opt/oracle && \
+    unzip ./instantclient-basiclite-linux.x64-18.3.0.0.0dbru.zip -d /opt/oracle/ && \
+    unzip ./instantclient-sdk-linux.x64-18.3.0.0.0dbru.zip -d /opt/oracle/ && \
     rm -rf /installer/*
 
 ENV LD_LIBRARY_PATH /opt/oracle/instantclient_18_3
