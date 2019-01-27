@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY . /installer
 WORKDIR /installer
 
-RUN /bin/bash -c source ./install_instantclient.sh && \
+RUN /bin/bash -c "source ./install_instantclient.sh" && \
     rm -rf /installer/*
 
 ENV LD_LIBRARY_PATH /opt/oracle/instantclient_12_2
