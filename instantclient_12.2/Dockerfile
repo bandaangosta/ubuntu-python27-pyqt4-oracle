@@ -1,7 +1,7 @@
 # Dockerfile to build base image for PyQt applications with access to Oracle database
 # Ubuntu + Python2.7 + Qt4 + Oracle instantclient
 
-FROM ubuntu:18.04-slim
+FROM ubuntu:18.04
 
 LABEL maintainer="bandaangosta <jlortiz@uc.cl>"
 
